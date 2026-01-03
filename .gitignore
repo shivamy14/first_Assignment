@@ -1,0 +1,23 @@
+service-service_account.json
+worker-services/service_account.json
+__pycache__/
+*.pyc
+.env
+.idea/
+.vscode/
+postgres_data/
+minio_data/
+*.zip
+*.pdf
+*.docx
+*.pptx
+*.jpg
+*.png
+*.mp4
+# Docker
+*.log
+# OS / Editor
+desktop.ini
+.DS_Store
+*.lnk
+api-service/service_account.json

@@ -1,0 +1,58 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: first_assignment-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: images_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+  minio:
+    image: minio/minio
+    container_name: first_assignment-minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    restart: always
+
+  api:
+    build: ./api-service
+    container_name: first_assignment-api
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/images_db
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minioadmin
+    depends_on:
+      - db
+      - minio
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+    restart: always
+
+  frontend:
+    build: ./frontend
+    container_name: first_assignment-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+    restart: always
+
+volumes:
+  postgres_data:
+  minio_data:

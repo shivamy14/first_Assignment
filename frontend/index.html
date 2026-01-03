@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Foto Owl – Google Drive Import</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>📸 Foto Owl</h1>
+      <p class="subtitle">Import images from Google Drive & view metadata</p>
+
+      <div class="input-box">
+        <label>Google Drive Folder URL</label>
+        <input
+          id="folder"
+          placeholder="https://drive.google.com/drive/folders/XXXXXXXX"
+        />
+
+        <button id="importBtn" onclick="importImages()">Import Images</button>
+
+        <!-- FRONTEND ONLY -->
+        <button
+          id="clearBtn"
+          onclick="clearImagesUI()"
+          style="background: #6c757d"
+        >
+          Clear Images
+        </button>
+
+        <p id="status" class="status"></p>
+      </div>
+
+      <div class="images-box">
+        <h2>Imported Images</h2>
+        <div id="imagesContainer" class="grid">
+          <div class="empty">No images yet</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

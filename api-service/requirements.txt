@@ -1,0 +1,12 @@
+minio
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+python-multipart
+pydantic
+requests
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-api-python-client
