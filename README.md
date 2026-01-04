@@ -1,6 +1,6 @@
-# 📸 Image Import System (Google Drive → MinIO)
+# Image Import System (Google Drive → MinIO)
 
-## 🔗 Submission Links
+## Submission Links
 
 ### GitHub Repository URL
 https://github.com/shivamy14/first_Assignment
@@ -36,7 +36,7 @@ The deployed URL exposes **backend APIs only**.
 ## API Endpoints
 - `POST /import/google-drive`
 - `GET /images`
-## ⚙️ Local Setup
+## Local Setup
 
 ```bash
 git clone https://github.com/shivamy14/first_Assignment
